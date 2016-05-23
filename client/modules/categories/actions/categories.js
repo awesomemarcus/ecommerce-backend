@@ -8,13 +8,13 @@ export default {
     return LocalState.set('ADDING_ERROR', 'Description is required.');
    }
 
-   Meteor.call('categoriesAdd', title, description, (err) => {
+   Meteor.call('categoriesAdd', title.toLowerCase(), description, (err) => {
     if(err){
      return LocalState.set('ADDING_ERROR', err.message);
     }
    });
 
-   Bert.alert('Category Saved!', 'success', 'fixed-top', 'fa-check');
+   Bert.alert(title + ' Saved!', 'success', 'fixed-top', 'fa-check');
 
    FlowRouter.go('categories.add');
   },

@@ -12,7 +12,7 @@ const SideBar = () => (
        </ul>
       </li>
       <li>
-       <a href="">Categories</a>
+       <a href="/admin/categories">Categories</a>
        <ul>
         <li><a href="/admin/categories/add">Add Category</a></li>
        </ul>

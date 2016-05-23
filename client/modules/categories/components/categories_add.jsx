@@ -7,7 +7,7 @@ class CategoriesAdd extends React.Component {
 
   const {addCategory} = this.props;
   const {cat_title, cat_description} = this.refs;
-  addCategory(cat_title.value.toLowerCase(), cat_description.value);
+  addCategory(cat_title.value, cat_description.value);
   cat_title.value = '';
   cat_description.value = '';
  }
