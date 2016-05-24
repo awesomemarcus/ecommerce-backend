@@ -6,7 +6,7 @@ const SideBar = () => (
      <ul className="nav">
       <li className="nav-header">Admin Panel</li>
       <li>
-       <a href="">Products</a>
+       <a href="/admin/products">Products</a>
        <ul>
         <li><a href="/admin/products/add">Add Product</a></li>
        </ul>

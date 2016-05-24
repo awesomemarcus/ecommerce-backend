@@ -1,4 +1,4 @@
-import {useDeps, composeAll, composeWithTracker, compose} from 'mantra-core';
+import {useDeps, composeAll, composeWithTracker} from 'mantra-core';
 
 import CategoriesList from '../components/categories_list.jsx';
 
