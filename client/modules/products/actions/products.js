@@ -28,7 +28,7 @@ export default {
   Delete({Meteor, Bert}, prodId) {
 
    Meteor.call('productsDelete', prodId);
-   
+
   },
 
   clearErrors({LocalState}) {

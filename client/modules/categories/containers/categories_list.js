@@ -13,11 +13,13 @@ export const composer = ({context}, onData) => {
 
 };
 
-// export const depsMapper = (context, actions) => ({
-//   context: () => context
-// });
+export const depsMapper = (context, actions) => ({
+  categoriesUpdate: actions.categories.Update,
+  categoriesDelete: actions.categories.Delete,
+  context: () => context,
+});
 
 export default composeAll(
   composeWithTracker(composer),
-  useDeps()
+  useDeps(depsMapper)
 )(CategoriesList);

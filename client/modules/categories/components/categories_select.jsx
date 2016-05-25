@@ -4,7 +4,6 @@ class CategoriesSelect extends React.Component{
 
  handleChange(){
   this.props.onUserSelect(this.refs.product_cat.value);
-  console.log(this.props.selectedCategory);
  }
 
  render(){

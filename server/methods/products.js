@@ -14,20 +14,37 @@ export default function () {
       const productItem = {title, description, product_cat, price, quantity, createdAt};
       Products.insert(productItem);
     },
+
+    'productsUpdate'(prodId, productItem) {
+
+     const {title, description, category, price, quantity} = productItem;
+
+     Products.update({_id:prodId}, {$set:{title: title, description: description, product_cat: category, price: price, quantity: quantity}});
+    },
+
+    'productsDelete'(prodId) {
+     Products.remove(prodId);
+    },
+
+    'productsCategoryUpdate'(catTitle) {
+     check(catTitle, String);
+     Products.update({product_cat: catTitle}, {$set:{product_cat: 'Uncategorized'}},{multi: true});
+    },
+
   });
 
-  Meteor.methods({
-   'productsUpdate'(prodId, productItem) {
-
-    const {title, description, category, price, quantity} = productItem;
-
-    Products.update({_id:prodId}, {$set:{title: title, description: description, product_cat: category, price: price, quantity: quantity}});
-   },
-  });
-
-  Meteor.methods({
-   'productsDelete'(prodId) {
-    Products.remove(prodId);
-   },
-  })
+  // Meteor.methods({
+  //  'productsUpdate'(prodId, productItem) {
+  //
+  //   const {title, description, category, price, quantity} = productItem;
+  //
+  //   Products.update({_id:prodId}, {$set:{title: title, description: description, product_cat: category, price: price, quantity: quantity}});
+  //  },
+  // });
+  //
+  // Meteor.methods({
+  //  'productsDelete'(prodId) {
+  //   Products.remove(prodId);
+  //  },
+  // })
 }

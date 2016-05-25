@@ -8,6 +8,7 @@ class ProductRow extends React.Component{
 
   this.props.onProductRemove(this.props.product._id);
  }
+ 
  render(){
 
   const {product} = this.props;

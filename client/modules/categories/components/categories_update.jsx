@@ -14,7 +14,7 @@ class CategoriesUpdate extends React.Component {
 
  render(){
 
-  const {error} = this.props;
+  const {error, category} = this.props;
 
   return (
    <div className="categories-add">
@@ -27,11 +27,11 @@ class CategoriesUpdate extends React.Component {
       <form action="" onSubmit={this.handleSubmit.bind(this)}>
        <div className="form-group">
         <label htmlFor="cat_title">Category Title:</label>
-        <input type="text" ref="cat_title" id="" className="cat-title form-control"/>
+        <input type="text" ref="cat_title" id="" className="cat-title form-control" defaultValue={category.title}/>
        </div>
        <div className="form-group">
         <label htmlFor="cat_description">Category Description:</label>
-        <textarea ref="cat_description" id="" className="form-control"></textarea>
+        <textarea ref="cat_description" id="" className="form-control" defaultValue={category.description}></textarea>
        </div>
        <button className="btn btn-primary">Add Category</button>
       </form>

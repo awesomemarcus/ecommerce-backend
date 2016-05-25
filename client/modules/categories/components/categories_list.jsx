@@ -1,12 +1,48 @@
 import React from 'react';
 import CategoryRow from './category_row.jsx';
+import CategoriesUpdate from '../containers/categories_update.js';
 
 class CategoriesList extends React.Component{
 
  componentWillMount(){
   this.setState({
    editting: false,
+   catId: '',
+   catIdEditting: '',
   })
+ }
+
+ handleStatus(catId){
+  if(catId){
+   return this.setState({
+    editting: true,
+    catIdEditting: catId,
+   });
+  }
+   return this.setState({
+    editting: false,
+    catIdEditting: '',
+   });
+
+ }
+
+ handleCategoryStatusUpdate(catId){
+  this.handleStatus(catId);
+ }
+
+ handleUpdate(catId, title, description){
+
+  const {categoriesUpdate} = this.props;
+
+  categoriesUpdate(catId, title, description);
+
+  this.handleStatus(null);
+
+ }
+
+ handleCategoryDelete(title){
+  const {categoriesDelete} = this.props;
+  categoriesDelete(title);
  }
 
 
@@ -26,11 +62,13 @@ class CategoriesList extends React.Component{
      </thead>
      <tbody>
       {categories.map(category => (
-       <CategoryRow onCategoryEdit={this.handleProductUpdate} key={category._id} category={category}/>
+       <CategoryRow
+        onCategoryDelete={this.handleCategoryDelete.bind(this)}
+        onUpdateRow={this.handleUpdate.bind(this)}
+        onStateStatus={this.state.editting} onEditingCatId={this.state.catIdEditting} onCategoryStatusUpdate={this.handleCategoryStatusUpdate.bind(this)} key={category._id} category={category}/>
       ))}
      </tbody>
     </table>
-
    </div>
   );
  }

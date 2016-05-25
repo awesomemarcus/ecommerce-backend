@@ -6,7 +6,7 @@ class ProductsAdd extends React.Component{
 componentWillMount(){
 
  this.setState({
-  selectedCategory: '',
+  selectedCategory: 'Select',
  })
 
 }
@@ -21,9 +21,10 @@ componentWillMount(){
  // }
 
  handleUserSelect(selectedCategory) {
-  this.setState({
+  return this.setState({
    selectedCategory: selectedCategory,
-  })
+  });
+
  }
 
  handleSubmit(e){

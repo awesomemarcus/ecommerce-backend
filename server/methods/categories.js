@@ -11,5 +11,15 @@ export default function () {
       const categoryItem = {title, description, createdAt};
       Categories.insert(categoryItem);
     },
+
+    'categoriesUpdate'(catId, title, description){
+
+     Categories.update({_id:catId}, {$set:{title: title, description: description}});
+    },
+
+    'categoriesDelete'(title){
+     check(title, String);
+     Categories.remove({title: title});
+    },
   });
 }
