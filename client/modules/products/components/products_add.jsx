@@ -1,5 +1,6 @@
 import React from 'react';
 import CategoriesSelect from '../../categories/containers/categories_select.js';
+import UploadsImage from '../../uploads/containers/uploads_image.js';
 
 class ProductsAdd extends React.Component{
 
@@ -10,15 +11,6 @@ componentWillMount(){
  })
 
 }
-
- // handleCategoriesList(categories){
- //  var rows = [];
- //   categories.map( category => (
- //    rows.push(<option key={category._id} value={category.title}>{category.title}</option>)
- //   ));
- //
- //   return rows;
- // }
 
  handleUserSelect(selectedCategory) {
   return this.setState({
@@ -31,9 +23,10 @@ componentWillMount(){
   e.preventDefault();
   const {addProduct} = this.props;
   const category = this.state.selectedCategory;
+  const productImage = this.state.productImage;
   const {title, description, price, quantity} = this.refs;
 
-  addProduct(title.value, description.value, category, price.value, quantity.value);
+  addProduct(title.value, description.value, category, price.value, quantity.value, productImage);
 
   title.value = '';
   description.value = '';
@@ -54,6 +47,12 @@ componentWillMount(){
   return product;
  }
 
+ handleImageUpload(uploadedImage){
+  this.setState({
+   productImage: uploadedImage,
+  });
+ }
+
  render(){
 
   // const {categories} = this.props;
@@ -67,7 +66,8 @@ componentWillMount(){
      </div>
      <div className="panel-body">
       {error ? <p className="bg-danger error-msg">{error}</p> : ''}
-      <form action="">
+      <form action="" enctype="multipart/form-data">
+      <UploadsImage onImageUpload={this.handleImageUpload.bind(this)}/>
        <div className="form-group">
         <label htmlFor="title">Product Title:</label>
         <input type="text" ref="title" className="form-control" />

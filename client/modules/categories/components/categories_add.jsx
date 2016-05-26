@@ -1,4 +1,5 @@
 import React from 'react';
+import UploadsImage from '../../uploads/containers/uploads_image.js';
 
 class CategoriesAdd extends React.Component {
 
@@ -7,9 +8,16 @@ class CategoriesAdd extends React.Component {
 
   const {addCategory} = this.props;
   const {cat_title, cat_description} = this.refs;
-  addCategory(cat_title.value, cat_description.value);
+  const categoryImage = this.state.categoryImage;
+  addCategory(cat_title.value, cat_description.value, categoryImage);
   cat_title.value = '';
   cat_description.value = '';
+ }
+
+ handleImageUpload(uploadedImage){
+  this.setState({
+   categoryImage: uploadedImage,
+  });
  }
 
  render(){
@@ -25,6 +33,7 @@ class CategoriesAdd extends React.Component {
      <div className="panel-body">
       {error ? <p className="bg-danger error-msg">{error}</p> : ''}
       <form action="" onSubmit={this.handleSubmit.bind(this)}>
+       <UploadsImage onImageUpload={this.handleImageUpload.bind(this)}/>
        <div className="form-group">
         <label htmlFor="cat_title">Category Title:</label>
         <input type="text" ref="cat_title" id="" className="cat-title form-control"/>

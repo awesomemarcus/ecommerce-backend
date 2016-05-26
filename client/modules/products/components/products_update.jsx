@@ -1,5 +1,6 @@
 import React from 'react';
 import CategoriesSelect from '../../categories/containers/categories_select.js';
+import UploadsImage from '../../uploads/containers/uploads_image.js';
 
 class ProductsUpdate extends React.Component{
 
@@ -23,6 +24,7 @@ componentWillMount(){
   e.preventDefault();
   const {updateProduct, prodId} = this.props;
   const {title, description, price, quantity} = this.refs;
+  const productImage = this.state.productImage;
 
   const prodItem = {
    title: title.value,
@@ -30,6 +32,7 @@ componentWillMount(){
    category: this.state.selectedCategory,
    price: price.value,
    quantity: quantity.value,
+   productImage: productImage,
   }
 
   updateProduct(prodId, prodItem);
@@ -42,6 +45,12 @@ componentWillMount(){
 
  }
 
+ handleImageUpload(uploadedImage){
+  this.setState({
+   productImage: uploadedImage,
+  });
+ }
+
 
  render(){
 
@@ -52,11 +61,12 @@ componentWillMount(){
    <div className="products-add">
     <div className="panel panel-default">
      <div className="panel-heading">
-      <h4>Add Product</h4>
+      <h4>Edit Product</h4>
      </div>
      <div className="panel-body">
       {error ? <p className="bg-danger error-msg">{error}</p> : ''}
-      <form action="">
+      <form action="" enctype="multipart/form-data">
+       <UploadsImage onImageUpload={this.handleImageUpload.bind(this)}/>
        <div className="form-group">
         <label htmlFor="title">Product Title:</label>
         <input type="text" ref="title" className="form-control" defaultValue={product.title}/>

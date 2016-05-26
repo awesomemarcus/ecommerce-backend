@@ -1,10 +1,10 @@
 export default {
-  Add({Meteor, LocalState, FlowRouter, Bert}, title, description, category, price, quantity) {
-   if(!title || !description || !category || !price || !quantity){
+  Add({Meteor, LocalState, FlowRouter, Bert}, title, description, category, price, quantity, productImage) {
+   if(!title || !description || !category || !price || !quantity || !productImage){
     return LocalState.set('SAVING_PRODUCT_ERROR', 'All fields are required.')
    }
 
-   Meteor.call('productsAdd', title, description, category, price, quantity, (err) => {
+   Meteor.call('productsAdd', title, description, category, price, quantity, productImage, (err) => {
     if(err){
      return LocalState.set('SAVING_PRODUCT_ERROR', err.message);
     }

@@ -4,17 +4,18 @@ import {check} from 'meteor/check';
 
 export default function () {
   Meteor.methods({
-    'categoriesAdd'(title, description) {
+    'categoriesAdd'(title, description, categoryImage) {
       check(title, String);
       check(description, String);
+      check(categoryImage, String);
       const createdAt = new Date();
-      const categoryItem = {title, description, createdAt};
+      const categoryItem = {title, description, categoryImage, createdAt};
       Categories.insert(categoryItem);
     },
 
-    'categoriesUpdate'(catId, title, description){
+    'categoriesUpdate'(catId, title, description, categoryImage){
 
-     Categories.update({_id:catId}, {$set:{title: title, description: description}});
+     Categories.update({_id:catId}, {$set:{title: title, description: description, categoryImage: categoryImage}});
     },
 
     'categoriesDelete'(title){

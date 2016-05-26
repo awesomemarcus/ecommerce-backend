@@ -17,6 +17,7 @@ class ProductsList extends React.Component{
     <table className="table table-hover">
      <thead>
       <tr>
+       <th></th>
        <th>Product Name</th>
        <th>Category</th>
        <th>Price</th>

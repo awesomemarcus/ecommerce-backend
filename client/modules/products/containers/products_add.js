@@ -19,6 +19,7 @@ export const composer = ({context, clearErrors}, onData) => {
 
 export const depsMapper = (context, actions) => ({
   addProduct: actions.products.Add,
+  uploadImage: actions.products.Upload,
   clearErrors: actions.products.clearErrors,
   context: () => context,
 });

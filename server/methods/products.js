@@ -4,22 +4,23 @@ import {check} from 'meteor/check';
 
 export default function () {
   Meteor.methods({
-    'productsAdd'(title, description, product_cat, price, quantity) {
+    'productsAdd'(title, description, product_cat, price, quantity, productImage) {
       check(title, String);
       check(description, String);
       check(product_cat, String);
+      check(productImage, String);
       // check(price, Number);
       // check(quantity, Number);
       const createdAt = new Date();
-      const productItem = {title, description, product_cat, price, quantity, createdAt};
+      const productItem = {title, description, product_cat, price, quantity, productImage, createdAt};
       Products.insert(productItem);
     },
 
     'productsUpdate'(prodId, productItem) {
 
-     const {title, description, category, price, quantity} = productItem;
+     const {title, description, category, price, quantity, productImage} = productItem;
 
-     Products.update({_id:prodId}, {$set:{title: title, description: description, product_cat: category, price: price, quantity: quantity}});
+     Products.update({_id:prodId}, {$set:{title: title, description: description, product_cat: category, price: price, quantity: quantity, productImage: productImage}});
     },
 
     'productsDelete'(prodId) {

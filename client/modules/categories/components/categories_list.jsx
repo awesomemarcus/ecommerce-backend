@@ -30,11 +30,11 @@ class CategoriesList extends React.Component{
   this.handleStatus(catId);
  }
 
- handleUpdate(catId, title, description){
+ handleUpdate(catId, title, description, categoryImage){
 
   const {categoriesUpdate} = this.props;
 
-  categoriesUpdate(catId, title, description);
+  categoriesUpdate(catId, title, description, categoryImage);
 
   this.handleStatus(null);
 
@@ -55,6 +55,7 @@ class CategoriesList extends React.Component{
     <table className="table table-hover">
      <thead>
       <tr>
+       <th></th>
        <th>Title</th>
        <th>Description</th>
        <th>Action</th>

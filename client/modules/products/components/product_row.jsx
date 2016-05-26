@@ -8,13 +8,14 @@ class ProductRow extends React.Component{
 
   this.props.onProductRemove(this.props.product._id);
  }
- 
+
  render(){
 
   const {product} = this.props;
 
   return (
    <tr>
+    <td><img src={product.productImage} alt=""/></td>
     <td>{product.title}</td>
     <td>{product.product_cat}</td>
     <td>{product.price}</td>
