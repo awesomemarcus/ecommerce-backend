@@ -33,8 +33,13 @@ class CategoriesList extends React.Component{
  handleUpdate(catId, title, description, categoryImage){
 
   const {categoriesUpdate} = this.props;
+  const catItems = {
+   title: title,
+   description: description,
+   categoryImage: categoryImage,
+  }
 
-  categoriesUpdate(catId, title, description, categoryImage);
+  categoriesUpdate(catId, catItems);
 
   this.handleStatus(null);
 

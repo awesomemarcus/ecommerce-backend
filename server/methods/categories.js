@@ -13,22 +13,9 @@ export default function () {
       Categories.insert(categoryItem);
     },
 
-    'categoriesUpdate'(catId, title, description, categoryImage){
+    'categoriesUpdate'(catId, catItems){
 
-     if(categoryImage){
-      var items = {
-       title: title,
-       description: description,
-       categoryImage: categoryImage,
-      };
-     } else {
-      items = {
-       title: title,
-       description: description,
-      };
-     }
-
-     Categories.update({_id:catId}, {$set:items});
+     Categories.update({_id:catId}, {$set:catItems});
     },
 
     'categoriesDelete'(title){

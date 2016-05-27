@@ -5,7 +5,7 @@ class CategoryRow extends React.Component {
 
  componentWillMount(){
   this.setState({
-   categoryImage: '',
+   categoryImage: undefined,
   })
  }
 
@@ -24,7 +24,7 @@ class CategoryRow extends React.Component {
   const {onEditingCatId, onUpdateRow} = this.props;
   const {cat_title, cat_description} = this.refs;
   const categoryImage = this.state.categoryImage;
-  onUpdateRow(onEditingCatId, cat_title.value, cat_description.value, categoryImage);
+  onUpdateRow(onEditingCatId, cat_title.value, cat_description.value, this.state.categoryImage);
  }
 
  handleCategoryDelete(e){

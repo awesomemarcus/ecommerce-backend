@@ -23,16 +23,16 @@ export default {
    return LocalState.set('SAVING_ERROR', null);
   },
 
-  Update({Meteor, LocalState, FlowRouter, Bert}, catId, title, description, categoryImage){
-   if(!title){
+  Update({Meteor, LocalState, FlowRouter, Bert}, catId, catItems){
+   if(!catItems.title){
     return Bert.alert('Title field is required', 'danger', 'fixed-top', 'fa-frown-o');
    }
 
-   if(!description){
+   if(!catItems.description){
     return Bert.alert('Description field is required', 'danger', 'fixed-top', 'fa-frown-o');
    }
 
-   Meteor.call('categoriesUpdate', catId, title, description, categoryImage, (err) => {
+   Meteor.call('categoriesUpdate', catId, catItems, (err) => {
     if(err){
      return Bert.alert(err.reason, 'danger', 'fixed-top', 'fa-frown-o');
     }

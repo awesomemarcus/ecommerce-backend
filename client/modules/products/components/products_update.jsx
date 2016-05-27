@@ -34,6 +34,7 @@ componentWillMount(){
    quantity: quantity.value,
    productImage: productImage,
   }
+  console.log(prodItem)
 
   updateProduct(prodId, prodItem);
 
