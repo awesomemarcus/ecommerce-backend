@@ -1,5 +1,4 @@
 import React from 'react';
-import AuthWrapper from '../../core/containers/auth_wrapper.js';
 
 
 class Login extends React.Component {
@@ -18,7 +17,6 @@ class Login extends React.Component {
     const {error} = this.props;
 
     return (
-      <AuthWrapper>
        <div className="login-box col-md-6 col-md-offset-3">
          <div className="panel panel-default">
            <div className="panel-heading">
@@ -40,7 +38,6 @@ class Login extends React.Component {
            </div>
          </div>
        </div>
-      </AuthWrapper>
   );
   }
 }

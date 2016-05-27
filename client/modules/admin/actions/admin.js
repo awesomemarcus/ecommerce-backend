@@ -16,7 +16,6 @@ export default {
     }
    });
 
-   FlowRouter.go('/');
   },
 
   clearErrors({LocalState}){

@@ -1,4 +1,5 @@
 import React from 'react';
+import Login from '../../admin/containers/login.js';
 
 const AuthWrapper = ({loggedIn, loggingIn, children}) => {
   if(loggedIn) {
@@ -13,7 +14,7 @@ const AuthWrapper = ({loggedIn, loggingIn, children}) => {
     );
   }
 
-  return <p>Please <a href="/admin/login">login</a> to view the contents.</p>
+  return <Login />
 
 
 };

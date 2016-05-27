@@ -5,7 +5,7 @@ import {mount} from 'react-mounter';
 import LoginLayout from './components/login_layout.jsx';
 import Login from './containers/login.js';
 import MainLayout from '../core/components/main_layout.jsx';
-import Admin from './components/admin.jsx';
+import ProductsList from '../products/containers/products_list.js';
 
 export default function (injectDeps, {FlowRouter}) {
   const LoginLayoutCtx = injectDeps(LoginLayout);
@@ -24,8 +24,16 @@ export default function (injectDeps, {FlowRouter}) {
    name: 'admin.home',
    action() {
     mount(MainLayoutCtx, {
-     content: () => (<Admin />),
+     content: () => (<ProductsList />),
     })
+   },
+  });
+
+  FlowRouter.route('/logout', {
+   name: 'admin.logout',
+   action() {
+    Meteor.logout();
+    FlowRouter.go('admin.home');
    },
   })
 }

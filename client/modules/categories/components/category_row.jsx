@@ -60,7 +60,7 @@ class CategoryRow extends React.Component {
 
   return (
    <tr>
-    <td><img src={category.categoryImage} className="img-responsive" alt=""/></td>
+    <td className="col-md-3"><img src={category.categoryImage} className="img-responsive" alt=""/></td>
     <td>{category.title}</td>
     <td>{category.description}</td>
    <td>
