@@ -18,9 +18,8 @@ export default function () {
 
     'productsUpdate'(prodId, productItem) {
 
-     const {title, description, category, price, quantity, productImage} = productItem;
 
-     Products.update({_id:prodId}, {$set:{title: title, description: description, product_cat: category, price: price, quantity: quantity, productImage: productImage}});
+     Products.update({_id:prodId}, {$set:productItem});
     },
 
     'productsDelete'(prodId) {

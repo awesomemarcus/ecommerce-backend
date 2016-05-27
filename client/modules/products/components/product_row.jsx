@@ -15,7 +15,7 @@ class ProductRow extends React.Component{
 
   return (
    <tr>
-    <td><img src={product.productImage} alt=""/></td>
+    <td><img className="img-responsive" src={product.productImage} alt=""/></td>
     <td>{product.title}</td>
     <td>{product.product_cat}</td>
     <td>{product.price}</td>

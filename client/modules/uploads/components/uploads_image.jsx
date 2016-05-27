@@ -8,6 +8,9 @@ class UploadsImage extends React.Component{
 
   var uploadedImage = (uploadImage(image.files[0]));
 
+  image.value = '';
+
+
   this.props.onImageUpload(uploadedImage);
  }
 

@@ -26,3 +26,6 @@ themeteorchef:bert
 msavin:mongol
 cfs:standard-packages
 cfs:gridfs
+email
+percolate:synced-cron
+meteorhacks:aggregate

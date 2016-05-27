@@ -15,7 +15,20 @@ export default function () {
 
     'categoriesUpdate'(catId, title, description, categoryImage){
 
-     Categories.update({_id:catId}, {$set:{title: title, description: description, categoryImage: categoryImage}});
+     if(categoryImage){
+      var items = {
+       title: title,
+       description: description,
+       categoryImage: categoryImage,
+      };
+     } else {
+      items = {
+       title: title,
+       description: description,
+      };
+     }
+
+     Categories.update({_id:catId}, {$set:items});
     },
 
     'categoriesDelete'(title){

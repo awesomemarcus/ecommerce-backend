@@ -1,9 +1,11 @@
 export default {
-  updateStatus({Meteor, Bert}, status, orderId){
+  updateStatus({Meteor, Bert}, status, order){
 
-   Meteor.call('statusUpdate', status, orderId, (err) => {
+   Meteor.call('statusUpdate', status, order._id, (err) => {
     if(!err){
-     return Bert.alert('Order Shipped', 'success', 'fixed-top', 'fa-check');
+     Bert.alert('Order Shipped', 'success', 'fixed-top', 'fa-check');
+
+     Meteor.call('emailShipped', order);
     }
    })
   },

@@ -7,7 +7,7 @@ export const composer = ({context}, onData) => {
 
   if(Meteor.subscribe('productsList').ready()){
 
-   const products = Collections.Products.find({}, {sort: {createdAt: 1}}).fetch();
+   const products = Collections.Products.find({}, {sort: {createdAt: -1}}).fetch();
 
    onData(null, {products});
   }

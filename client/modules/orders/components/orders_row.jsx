@@ -7,7 +7,7 @@ class OrdersRow extends React.Component{
 
   const {order} = this.props;
 
-  this.props.onShipOrder(true, order._id);
+  this.props.onShipOrder(true, order);
  }
 
  render(){

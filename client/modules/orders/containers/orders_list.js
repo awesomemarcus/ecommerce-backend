@@ -9,7 +9,6 @@ export const composer = ({context}, onData) => {
 
    const orders = Collections.Orders.find({}, {sort:{purchasedDate: 1}}).fetch();
 
-   console.log(orders);
 
    onData(null, {orders});
 

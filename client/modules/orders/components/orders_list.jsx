@@ -3,13 +3,13 @@ import OrdersRow from './orders_row.jsx';
 
 class OrdersList extends React.Component{
 
- handleShipSubmit(status, orderId){
+ handleShipSubmit(status, order){
 
   const {updateStatus} = this.props;
 
   const itemStatus = status ? 'shipped' : 'pending';
 
-  updateStatus(itemStatus, orderId);
+  updateStatus(itemStatus, order);
 
  }
 

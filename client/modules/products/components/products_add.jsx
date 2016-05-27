@@ -7,7 +7,8 @@ class ProductsAdd extends React.Component{
 componentWillMount(){
 
  this.setState({
-  selectedCategory: 'Select',
+  selectedCategory: '',
+  imageUploaded: false,
  })
 
 }
@@ -30,26 +31,17 @@ componentWillMount(){
 
   title.value = '';
   description.value = '';
-  this.setState({selectedCategory: ''});
+  this.setState({selectedCategory: '', imageUploaded: false});
   price.value = '';
   quantity.value = '';
 
  }
 
- setFields(product){
-
-    product = {
-     title: '',
-     description: '',
-     price: '',
-     quantity: '',
-    }
-  return product;
- }
 
  handleImageUpload(uploadedImage){
   this.setState({
    productImage: uploadedImage,
+   imageUploaded: true,
   });
  }
 
@@ -67,7 +59,7 @@ componentWillMount(){
      <div className="panel-body">
       {error ? <p className="bg-danger error-msg">{error}</p> : ''}
       <form action="" enctype="multipart/form-data">
-      <UploadsImage onImageUpload={this.handleImageUpload.bind(this)}/>
+      {this.state.imageUploaded ? 'Image uploaded..' : <UploadsImage onImageUpload={this.handleImageUpload.bind(this)} />}
        <div className="form-group">
         <label htmlFor="title">Product Title:</label>
         <input type="text" ref="title" className="form-control" />

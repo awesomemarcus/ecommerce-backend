@@ -6,11 +6,17 @@ class CategoriesSelect extends React.Component{
   this.props.onUserSelect(this.refs.product_cat.value);
  }
 
+ componentDidUpdate(){
+  this.refs.product_cat.value = this.props.selectedCategory;
+ }
+
+
  render(){
 
   const {categoriesList} = this.props;
 
   return (
+
    <div className="form-group">
     <label htmlFor="product_cat">Product Category:</label>
     <select ref="product_cat" className="form-control" onChange={this.handleChange.bind(this)} defaultValue={this.props.selectedCategory}>
